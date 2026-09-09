@@ -5,9 +5,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'django-insecure-mariam-portfolio-secret-key-2026-change-in-production'
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['*'] # Allows all hosts including vercel.app domains
+ALLOWED_HOSTS = ['*']  # Allows all hosts including vercel.app domains
 
 INSTALLED_APPS = [
     'django.contrib.admin',
