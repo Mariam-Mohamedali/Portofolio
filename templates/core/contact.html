@@ -3,117 +3,100 @@
 
 {% block content %}
 <div class="page-container">
-    <!-- Unified Contact Card -->
-    <div class="glass-panel" style="padding: 4rem 3rem;" data-aos="fade-up">
-        <div class="contact-grid" style="align-items: center;">
+    <div style="text-align: center; margin-bottom: 4rem;" data-aos="fade-down">
+        <p class="section-tag"><i class="fas fa-paper-plane" style="color: var(--primary);"></i> Contact</p>
+        <h1 class="section-title" style="margin-bottom: 0.8rem;">Let's Build Something <span class="gradient-text">Awesome</span></h1>
+        <p class="section-subtitle">I'm currently available for freelance projects or full-time roles. Drop me a message and I'll get back to you!</p>
+    </div>
 
-            <!-- Left Side: Text and Form -->
-            <div class="text-content">
-                <h1
-                    style="font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 1rem; color: var(--text-main); font-weight: 800; line-height: 1.1;">
-                    Let's build something <br>
-                    <span style="color: var(--primary);">awesome together.</span>
-                </h1>
-
-                <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2rem;">
-                    I'm currently available for freelance projects or full-time roles. Drop me a message and I'll get
-                    back to you as soon as possible!
-                </p>
-
-                {% if messages %}
-                <div style="margin-bottom: 2rem;">
-                    {% for message in messages %}
-                    <div
-                        style="padding: 1rem 1.5rem; background: rgba(217, 202, 188, 0.1); border-left: 4px solid var(--primary); border-radius: 8px; color: var(--text-main);">
-                        {{ message }}
-                    </div>
-                    {% endfor %}
-                </div>
-                {% endif %}
-
-                <!-- EmailJS Status Message -->
-                <div id="emailjs-status" style="display: none; margin-bottom: 1.5rem;"></div>
-
-                <form id="contact-form" method="POST" action="{% url 'contact' %}">
-                    {% csrf_token %}
-                    <div class="form-row">
-                        <div>
-                            <input type="text" id="field-name" name="name" class="form-control"
-                                placeholder="Your Name" required style="background: var(--bg-main);">
-                        </div>
-                        <div>
-                            <input type="email" id="field-email" name="email" class="form-control"
-                                placeholder="Your Email" required style="background: var(--bg-main);">
-                        </div>
-                    </div>
-                    <div class="form-group" style="margin-bottom: 1.5rem;">
-                        <input type="text" id="field-subject" name="subject" class="form-control"
-                            placeholder="Subject" required style="background: var(--bg-main);">
-                    </div>
-                    <div class="form-group" style="margin-bottom: 2rem;">
-                        <textarea id="field-message" name="message" class="form-control" rows="5"
-                            placeholder="Tell me about your project..." required
-                            style="background: var(--bg-main);"></textarea>
-                    </div>
-                    <button type="submit" id="submit-btn" class="btn btn-primary"
-                        style="width: 100%; padding: 1.2rem; font-size: 1.1rem;">
-                        <span id="btn-text">Send Message</span>
-                        <i id="btn-icon" class="fas fa-paper-plane" style="margin-left: 0.5rem;"></i>
-                        <i id="btn-spinner" class="fas fa-spinner fa-spin" style="margin-left: 0.5rem; display: none;"></i>
-                    </button>
-                </form>
-
-                <!-- Quick Contact Cards -->
-                <div class="quick-links">
-                    <div class="glass-panel"
-                        style="padding: 1.2rem; display: flex; align-items: center; gap: 1rem; background: rgba(255, 255, 255, 0.03);">
-                        <div
-                            style="min-width: 45px; height: 45px; border-radius: 50%; background: var(--bg-main); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; color: var(--primary);">
+    <div class="contact-grid" style="align-items: stretch; gap: 2rem;">
+        
+        <!-- Left Side: Contact Info -->
+        <div style="display: flex; flex-direction: column; gap: 1.5rem;" data-aos="fade-right">
+            <div class="glass-panel" style="padding: 2.5rem; flex: 1; display: flex; flex-direction: column; justify-content: center;">
+                <h3 style="font-size: 1.5rem; margin-bottom: 2rem; color: var(--text-main);">Contact Information</h3>
+                
+                <div style="display: flex; flex-direction: column; gap: 2rem;">
+                    <!-- Email -->
+                    <div style="display: flex; align-items: center; gap: 1.2rem;">
+                        <div style="min-width: 50px; height: 50px; border-radius: 12px; background: rgba(201, 168, 124, 0.08); border: 1px solid rgba(201, 168, 124, 0.15); display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.2rem; transition: var(--transition);">
                             <i class="fas fa-envelope"></i>
                         </div>
-                        <div style="overflow: hidden; width: 100%;">
-                            <p
-                                style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 0;">
-                                Email</p>
-                            <p style="font-weight: 500; font-size: 0.9rem; margin-bottom: 0; word-break: break-word;">
-                                mariammohamedali127@gmail.com</p>
+                        <div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 0.2rem;">Email</p>
+                            <p style="font-weight: 500; font-size: 1rem; color: var(--text-main); margin-bottom: 0; word-break: break-word;">mariammohamedali127@gmail.com</p>
                         </div>
                     </div>
 
-                    <div class="glass-panel"
-                        style="padding: 1.2rem; display: flex; align-items: center; gap: 1rem; background: rgba(255, 255, 255, 0.03);">
-                        <div
-                            style="min-width: 45px; height: 45px; border-radius: 50%; background: var(--bg-main); border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; color: var(--primary);">
-                            <i class="fas fa-phone"></i>
+                    <!-- Phone -->
+                    <div style="display: flex; align-items: center; gap: 1.2rem;">
+                        <div style="min-width: 50px; height: 50px; border-radius: 12px; background: rgba(201, 168, 124, 0.08); border: 1px solid rgba(201, 168, 124, 0.15); display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.2rem; transition: var(--transition);">
+                            <i class="fas fa-phone-alt"></i>
                         </div>
                         <div>
-                            <p
-                                style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 0;">
-                                Phone</p>
-                            <p style="font-weight: 500; font-size: 0.9rem; margin-bottom: 0;">01226622320</p>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 0.2rem;">Phone</p>
+                            <p style="font-weight: 500; font-size: 1rem; color: var(--text-main); margin-bottom: 0;">01226622320</p>
+                        </div>
+                    </div>
+
+                    <!-- Location -->
+                    <div style="display: flex; align-items: center; gap: 1.2rem;">
+                        <div style="min-width: 50px; height: 50px; border-radius: 12px; background: rgba(201, 168, 124, 0.08); border: 1px solid rgba(201, 168, 124, 0.15); display: flex; align-items: center; justify-content: center; color: var(--primary); font-size: 1.2rem; transition: var(--transition);">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <p style="font-size: 0.85rem; color: var(--text-muted); text-transform: uppercase; letter-spacing: 1px; font-weight: 600; margin-bottom: 0.2rem;">Location</p>
+                            <p style="font-weight: 500; font-size: 1rem; color: var(--text-main); margin-bottom: 0;">Cairo, Egypt</p>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Right Side: Decorative Image -->
-            <div class="image-content" style="display: flex; justify-content: center; position: relative;">
-                <div style="position: relative; width: 100%; max-width: 400px;">
-                    <div
-                        style="border-radius: 24px; overflow: hidden; border: 6px solid var(--bg-main); box-shadow: 0 20px 40px rgba(0,0,0,0.4); position: relative; z-index: 2;">
-                        <img src="{% static 'images/Contact.jpeg' %}" alt="Mariam" class="contact-img"
-                            style="display: block; width: 100%; border: none;"
-                            onerror="this.outerHTML='<div class=\'image-placeholder\' style=\'padding: 3rem; height: 400px; background: var(--bg-main); border: none;\'>Save VHS Wink photo<br>as contact-wink.jpg</div>'">
-                    </div>
-
-                    <!-- Decorative Circle -->
-                    <div
-                        style="position: absolute; top: -20px; right: -20px; width: 150px; height: 150px; border-radius: 50%; background: linear-gradient(135deg, rgba(217, 202, 188, 0.15), rgba(217, 202, 188, 0.05)); filter: blur(30px); z-index: 1;">
-                    </div>
+                <div class="social-icons" style="margin-top: 3rem; justify-content: flex-start;">
+                    <a href="https://github.com/mariammohamedali127" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/mariam-mohamed127" target="_blank"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
-
         </div>
+
+        <!-- Right Side: Form -->
+        <div class="glass-panel" style="padding: 2.5rem;" data-aos="fade-left">
+            {% if messages %}
+            <div style="margin-bottom: 2rem;">
+                {% for message in messages %}
+                <div style="padding: 1rem 1.5rem; background: rgba(34, 197, 94, 0.1); border-left: 4px solid #22c55e; border-radius: 8px; color: #86efac; font-size: 0.95rem;">
+                    {{ message }}
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+            <!-- EmailJS Status Message -->
+            <div id="emailjs-status" style="display: none; margin-bottom: 1.5rem;"></div>
+
+            <form id="contact-form" method="POST" action="{% url 'contact' %}">
+                {% csrf_token %}
+                <div class="form-row">
+                    <div>
+                        <input type="text" id="field-name" name="name" class="form-control" placeholder="Your Name" required style="background: rgba(255, 255, 255, 0.02);">
+                    </div>
+                    <div>
+                        <input type="email" id="field-email" name="email" class="form-control" placeholder="Your Email" required style="background: rgba(255, 255, 255, 0.02);">
+                    </div>
+                </div>
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <input type="text" id="field-subject" name="subject" class="form-control" placeholder="Subject" required style="background: rgba(255, 255, 255, 0.02);">
+                </div>
+                <div class="form-group" style="margin-bottom: 2rem;">
+                    <textarea id="field-message" name="message" class="form-control" rows="6" placeholder="Tell me about your project..." required style="background: rgba(255, 255, 255, 0.02); resize: vertical;"></textarea>
+                </div>
+                <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%; padding: 1.2rem; font-size: 1.1rem; border-radius: 12px;">
+                    <span id="btn-text">Send Message</span>
+                    <i id="btn-icon" class="fas fa-paper-plane" style="margin-left: 0.5rem;"></i>
+                    <i id="btn-spinner" class="fas fa-spinner fa-spin" style="margin-left: 0.5rem; display: none;"></i>
+                </button>
+            </form>
+        </div>
+
     </div>
 </div>
 {% endblock %}

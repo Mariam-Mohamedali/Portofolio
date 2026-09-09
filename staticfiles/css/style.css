@@ -953,6 +953,10 @@ a {
     }
     .text-content {
         order: 2;
+        text-align: center !important;
+    }
+    .hero-actions, .social-icons {
+        justify-content: center !important;
     }
     .image-content {
         order: 1;
