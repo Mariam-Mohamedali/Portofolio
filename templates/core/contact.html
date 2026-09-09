@@ -207,9 +207,9 @@
     overflow: hidden;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     position: relative;
-    height: fit-content;
-    align-self: flex-start;
+    height: 100%;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
@@ -222,7 +222,7 @@
     overflow: hidden;
     background: #0d0a08;
     border: 1px solid var(--border-color);
-    margin-bottom: 0.8rem;
+    margin-bottom: 1rem;
 }
 
 .contact-card-img {
@@ -240,9 +240,11 @@
 }
 
 .contact-image-footer {
-    padding: 0.4rem 0 0.2rem;
+    padding: 1.2rem 0.5rem 0.5rem;
     background: transparent;
     text-align: center;
+    border-top: 1px solid var(--border-color);
+    margin-top: auto;
 }
 
 .contact-image-name {
