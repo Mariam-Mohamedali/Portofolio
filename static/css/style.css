@@ -18,7 +18,7 @@
     --secondary: #d4b896;
     --accent-glow: rgba(201, 168, 124, 0.08);
     --transition: all 0.3s ease;
-    --font-heading: 'Outfit', -apple-system, sans-serif;
+    --font-heading: 'Dancing Script', cursive;
     --font-body: 'Outfit', -apple-system, sans-serif;
     --font-accent: 'Dancing Script', cursive;
 }
@@ -37,9 +37,13 @@ body, input, textarea, button, select, p, span, a, label {
     font-family: var(--font-body);
 }
 
-h1, h2, h3, h4, h5, h6, .section-title, .hero-title {
+h1, h2, .section-title, .hero-title, .logo, .contact-title, .page-title {
     font-family: var(--font-heading);
-    letter-spacing: -0.5px;
+    letter-spacing: 0px;
+}
+
+h3, h4, h5, h6 {
+    font-family: var(--font-body);
 }
 
 body {

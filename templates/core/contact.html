@@ -123,11 +123,12 @@
 }
 
 .contact-title {
-    font-size: 2.2rem;
+    font-family: var(--font-heading) !important;
+    font-size: 2.6rem;
     font-weight: 700;
     color: var(--text-main);
     margin-bottom: 0.4rem;
-    line-height: 1.2;
+    line-height: 1.1;
 }
 
 .contact-subtitle {
@@ -218,31 +219,36 @@
     min-height: 380px;
     position: relative;
     overflow: hidden;
-    background: #0d0a08;
+    background: var(--bg-card);
+    padding: 1.2rem 1.2rem 0;
 }
 
 .contact-card-img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center 20%;
+    object-position: center 15%;
     display: block;
+    border-radius: 18px 18px 0 0;
+    border: 1px solid var(--border-color);
+    border-bottom: none;
     transition: transform 0.5s ease;
 }
 
 .contact-image-card:hover .contact-card-img {
-    transform: scale(1.03);
+    transform: scale(1.02);
 }
 
 .contact-image-footer {
-    padding: 1.5rem;
-    background: rgba(28, 24, 20, 0.95);
+    padding: 1.2rem;
+    background: var(--bg-card);
     border-top: 1px solid var(--border-color);
     text-align: center;
 }
 
 .contact-image-name {
-    font-size: 1.25rem;
+    font-family: var(--font-heading) !important;
+    font-size: 1.6rem;
     font-weight: 700;
     color: var(--text-main);
     margin-bottom: 0.2rem;
