@@ -56,31 +56,30 @@ def contact(request):
         message = request.POST.get('message', '').strip()
 
         if name and email and subject and message:
-            ContactMessage.objects.create(
-                name=name,
-                email=email,
-                subject=subject,
-                message=message
-            )
+            try:
+                ContactMessage.objects.create(
+                    name=name,
+                    email=email,
+                    subject=subject,
+                    message=message
+                )
+            except Exception as e:
+                print("Could not save to DB:", e)
             
-            # Send Email Notification to Mariam in the background
+            # Send Email Notification synchronously (safer for serverless)
             from django.core.mail import send_mail
             from django.conf import settings
-            import threading
             
-            def send_notification():
-                try:
-                    send_mail(
-                        subject=f"New Portfolio Message: {subject}",
-                        message=f"You have a new message from {name} ({email}):\n\n{message}",
-                        from_email=settings.EMAIL_HOST_USER,
-                        recipient_list=['mariammohamedali127@gmail.com'],
-                        fail_silently=True,
-                    )
-                except Exception:
-                    pass
-                    
-            threading.Thread(target=send_notification).start()
+            try:
+                send_mail(
+                    subject=f"New Portfolio Message: {subject}",
+                    message=f"You have a new message from {name} ({email}):\n\n{message}",
+                    from_email=settings.EMAIL_HOST_USER,
+                    recipient_list=['mariammohamedali127@gmail.com'],
+                    fail_silently=True,
+                )
+            except Exception:
+                pass
             
             messages.success(request, 'Message sent successfully! I\'ll get back to you soon. 🚀')
             return redirect('contact')
