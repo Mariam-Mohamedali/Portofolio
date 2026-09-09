@@ -65,14 +65,14 @@
         </div>
 
         <!-- Right Side: Portrait Image -->
-        <div style="flex: 0 0 380px; position: relative; background: var(--bg-main); overflow: hidden;">
+        <div style="flex: 0 0 360px; position: relative; min-height: 520px; background: var(--bg-main); overflow: hidden; flex-shrink: 0;">
             
-            <!-- Image fills the column, shows full portrait -->
+            <!-- Image pinned to top so face + body shows, not zoomed in -->
             <img src="{% static 'images/Contact.jpeg' %}" alt="Mariam Contact"
-                 style="display: block; width: 100%; height: 100%; object-fit: cover; object-position: 50% 20%;">
+                 style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center top;">
             
             <!-- Dark gradient at bottom for text readability -->
-            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(19, 16, 13, 0.95) 0%, rgba(19, 16, 13, 0.5) 40%, transparent 70%); pointer-events: none;"></div>
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(19, 16, 13, 0.95) 0%, rgba(19, 16, 13, 0.4) 45%, transparent 70%); pointer-events: none;"></div>
             
             <!-- Text at bottom of image -->
             <div style="position: absolute; bottom: 2rem; left: 2rem; right: 2rem; z-index: 2;">
