@@ -2,18 +2,18 @@
 {% load static %}
 
 {% block content %}
-<div class="page-container">
-    <div style="text-align: center; margin-bottom: 4rem;" data-aos="fade-down">
+<div class="page-container" style="max-width: 1000px;">
+    <div style="text-align: center; margin-bottom: 3rem;" data-aos="fade-down">
         <h1 class="section-title" style="margin-bottom: 0.8rem;">Get in Touch</h1>
         <p class="section-subtitle">Have a project in mind or looking for a developer? I'd love to hear from you!</p>
     </div>
 
     <!-- Master Contact Card with Split Layout -->
-    <div class="glass-panel" style="padding: 0; overflow: hidden; display: flex; flex-wrap: wrap; border-radius: 24px; box-shadow: 0 25px 50px rgba(0,0,0,0.5);" data-aos="fade-up">
+    <div class="glass-panel" style="padding: 0; overflow: hidden; display: flex; flex-wrap: wrap; border-radius: 24px; box-shadow: 0 25px 50px rgba(0,0,0,0.5); align-items: stretch;" data-aos="fade-up">
         
         <!-- Left Side: Form and Info -->
-        <div style="flex: 1 1 500px; padding: 3rem 4rem; display: flex; flex-direction: column; justify-content: center;">
-            <h3 style="font-size: 2rem; margin-bottom: 2rem; color: var(--text-main); font-family: var(--font-heading); font-weight: 500;">Send a Message</h3>
+        <div style="flex: 1 1 420px; padding: 2.5rem 3rem; display: flex; flex-direction: column; justify-content: center;">
+            <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--text-main); font-family: var(--font-heading); font-weight: 500;">Send a Message</h3>
             
             {% if messages %}
             <div style="margin-bottom: 2rem;">
@@ -30,7 +30,7 @@
 
             <form id="contact-form" method="POST" action="{% url 'contact' %}">
                 {% csrf_token %}
-                <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 1.5rem;">
+                <div class="form-row" style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin-bottom: 1.2rem;">
                     <div>
                         <input type="text" id="field-name" name="name" class="form-control" placeholder="Your Name" required style="background: rgba(255, 255, 255, 0.02);">
                     </div>
@@ -38,13 +38,13 @@
                         <input type="email" id="field-email" name="email" class="form-control" placeholder="Your Email" required style="background: rgba(255, 255, 255, 0.02);">
                     </div>
                 </div>
-                <div class="form-group" style="margin-bottom: 1.5rem;">
+                <div class="form-group" style="margin-bottom: 1.2rem;">
                     <input type="text" id="field-subject" name="subject" class="form-control" placeholder="Subject" required style="background: rgba(255, 255, 255, 0.02);">
                 </div>
-                <div class="form-group" style="margin-bottom: 2rem;">
-                    <textarea id="field-message" name="message" class="form-control" rows="5" placeholder="Tell me about your project..." required style="background: rgba(255, 255, 255, 0.02); resize: vertical;"></textarea>
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <textarea id="field-message" name="message" class="form-control" rows="4" placeholder="Tell me about your project..." required style="background: rgba(255, 255, 255, 0.02); resize: vertical;"></textarea>
                 </div>
-                <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%; padding: 1.2rem; font-size: 1.1rem; border-radius: 12px;">
+                <button type="submit" id="submit-btn" class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: 12px;">
                     <span id="btn-text">Send Message</span>
                     <i id="btn-icon" class="fas fa-paper-plane" style="margin-left: 0.5rem;"></i>
                     <i id="btn-spinner" class="fas fa-spinner fa-spin" style="margin-left: 0.5rem; display: none;"></i>
@@ -52,32 +52,32 @@
             </form>
             
             <!-- Quick Links inline below form -->
-            <div style="display: flex; gap: 3rem; margin-top: 3rem; flex-wrap: wrap; border-top: 1px solid var(--border-color); padding-top: 2rem;">
+            <div style="display: flex; gap: 2rem; margin-top: 2rem; flex-wrap: wrap; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
                 <div>
-                    <p style="font-size: 0.8rem; color: var(--primary); text-transform: uppercase; font-weight: 700; letter-spacing: 1px; margin-bottom: 0.4rem;"><i class="fas fa-envelope" style="margin-right: 0.4rem;"></i> Email</p>
-                    <p style="color: var(--text-main); font-weight: 500; font-size: 0.95rem;">mariammohamedali127@gmail.com</p>
+                    <p style="font-size: 0.75rem; color: var(--primary); text-transform: uppercase; font-weight: 700; letter-spacing: 1px; margin-bottom: 0.3rem;"><i class="fas fa-envelope" style="margin-right: 0.4rem;"></i> Email</p>
+                    <p style="color: var(--text-main); font-weight: 500; font-size: 0.9rem;">mariammohamedali127@gmail.com</p>
                 </div>
                 <div>
-                    <p style="font-size: 0.8rem; color: var(--primary); text-transform: uppercase; font-weight: 700; letter-spacing: 1px; margin-bottom: 0.4rem;"><i class="fas fa-phone-alt" style="margin-right: 0.4rem;"></i> Phone</p>
-                    <p style="color: var(--text-main); font-weight: 500; font-size: 0.95rem;">01226622320</p>
+                    <p style="font-size: 0.75rem; color: var(--primary); text-transform: uppercase; font-weight: 700; letter-spacing: 1px; margin-bottom: 0.3rem;"><i class="fas fa-phone-alt" style="margin-right: 0.4rem;"></i> Phone</p>
+                    <p style="color: var(--text-main); font-weight: 500; font-size: 0.9rem;">01226622320</p>
                 </div>
             </div>
         </div>
 
-        <!-- Right Side: Full Height Image -->
-        <div style="flex: 1 1 400px; position: relative; min-height: 500px; background: var(--bg-main);">
-            <img src="{% static 'images/Contact.jpeg' %}" alt="Mariam Contact" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: center;">
+        <!-- Right Side: Clean Portrait Image Container -->
+        <div style="flex: 1 1 350px; position: relative; min-height: 450px; background: var(--bg-main); overflow: hidden; display: flex; align-items: center; justify-content: center;">
+            <img src="{% static 'images/Contact.jpeg' %}" alt="Mariam Contact" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; object-position: top center;">
             
             <!-- Elegant Gradient Overlay -->
-            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(19, 16, 13, 1) 0%, rgba(19, 16, 13, 0.4) 50%, transparent 100%);"></div>
+            <div style="position: absolute; inset: 0; background: linear-gradient(to top, rgba(19, 16, 13, 0.95) 0%, rgba(19, 16, 13, 0.3) 50%, transparent 100%);"></div>
             
             <!-- Text Over Image -->
-            <div style="position: absolute; bottom: 3rem; left: 3rem; right: 3rem; z-index: 2;">
-                <h3 style="font-family: var(--font-heading); font-size: 3rem; color: #fff; line-height: 1.2; margin-bottom: 1.5rem; text-shadow: 0 4px 15px rgba(0,0,0,0.5);">Let's build something awesome.</h3>
+            <div style="position: absolute; bottom: 2.5rem; left: 2.5rem; right: 2.5rem; z-index: 2;">
+                <h3 style="font-family: var(--font-heading); font-size: 2.2rem; color: #fff; line-height: 1.2; margin-bottom: 1.2rem; text-shadow: 0 4px 15px rgba(0,0,0,0.6);">Let's build something awesome.</h3>
                 
-                <div class="social-icons" style="margin-top: 0; justify-content: flex-start; gap: 1rem;">
-                    <a href="https://github.com/mariammohamedali127" target="_blank" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff; backdrop-filter: blur(5px);"><i class="fab fa-github"></i></a>
-                    <a href="https://www.linkedin.com/in/mariam-mohamed127" target="_blank" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff; backdrop-filter: blur(5px);"><i class="fab fa-linkedin-in"></i></a>
+                <div class="social-icons" style="margin-top: 0; justify-content: flex-start; gap: 0.8rem;">
+                    <a href="https://github.com/mariammohamedali127" target="_blank" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff; backdrop-filter: blur(5px); width: 38px; height: 38px; font-size: 1.1rem;"><i class="fab fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/mariam-mohamed127" target="_blank" style="background: rgba(255,255,255,0.1); border-color: rgba(255,255,255,0.2); color: #fff; backdrop-filter: blur(5px); width: 38px; height: 38px; font-size: 1.1rem;"><i class="fab fa-linkedin-in"></i></a>
                 </div>
             </div>
         </div>
