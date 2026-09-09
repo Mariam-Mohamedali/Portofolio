@@ -4,75 +4,54 @@
 {% block content %}
 <div class="contact-page">
 
-    <!-- Contact Wrapper Card -->
-    <div class="contact-card-wrapper glass-panel" data-aos="fade-up">
-        
-        <!-- TOP BANNER IMAGE: Sleek header banner without face overlap -->
-        <div class="contact-banner-box">
-            <img src="{% static 'images/Contact.jpeg' %}" alt="Mariam Mohamed Ali" class="contact-banner-img">
-        </div>
+    <div class="contact-split-grid">
 
-        <div class="contact-body">
-            <!-- Header & Social -->
-            <div class="contact-header-row">
-                <div class="contact-header-text">
-                    <h2 class="contact-caption-title">Let's build something awesome.</h2>
-                    <p class="contact-caption-sub">Have a project in mind? I'd love to hear from you!</p>
+        <!-- LEFT SIDE: Form & Header -->
+        <div class="glass-panel contact-form-card" data-aos="fade-right">
+            <div>
+                <h1 class="contact-title">Let's build something awesome.</h1>
+                <p class="contact-subtitle">Have a project in mind? I'd love to hear from you!</p>
+
+                {% if messages %}
+                <div style="margin-bottom: 1.2rem;">
+                    {% for message in messages %}
+                    <div class="contact-alert contact-alert--success">{{ message }}</div>
+                    {% endfor %}
                 </div>
-                <div class="contact-social-pills">
-                    <a href="https://github.com/mariammohamedali127" target="_blank" class="social-pill-icon" title="GitHub">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/mariam-mohamed127" target="_blank" class="social-pill-icon" title="LinkedIn">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                </div>
-            </div>
+                {% endif %}
 
-            <div class="contact-divider"></div>
+                <div id="emailjs-status" style="display: none; margin-bottom: 1.2rem;"></div>
 
-            <!-- Form -->
-            <h3 class="contact-form-subtitle">Send Me a Message</h3>
-
-            {% if messages %}
-            <div style="margin-bottom: 1.2rem;">
-                {% for message in messages %}
-                <div class="contact-alert contact-alert--success">{{ message }}</div>
-                {% endfor %}
-            </div>
-            {% endif %}
-
-            <div id="emailjs-status" style="display: none; margin-bottom: 1.2rem;"></div>
-
-            <form id="contact-form" method="POST" action="{% url 'contact' %}">
-                {% csrf_token %}
-                <div class="contact-grid-2">
-                    <div class="form-group">
-                        <label for="field-name">Your Name</label>
-                        <input type="text" id="field-name" name="name" class="form-control" placeholder="Mariam Mohamed" required>
+                <form id="contact-form" method="POST" action="{% url 'contact' %}">
+                    {% csrf_token %}
+                    <div class="contact-grid-2">
+                        <div class="form-group">
+                            <label for="field-name">Your Name</label>
+                            <input type="text" id="field-name" name="name" class="form-control" placeholder="Mariam Mohamed" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="field-email">Your Email</label>
+                            <input type="email" id="field-email" name="email" class="form-control" placeholder="name@example.com" required>
+                        </div>
                     </div>
-                    <div class="form-group">
-                        <label for="field-email">Your Email</label>
-                        <input type="email" id="field-email" name="email" class="form-control" placeholder="name@example.com" required>
+
+                    <div class="form-group" style="margin-bottom: 1rem;">
+                        <label for="field-subject">Subject</label>
+                        <input type="text" id="field-subject" name="subject" class="form-control" placeholder="Project Inquiry / Collaboration" required>
                     </div>
-                </div>
 
-                <div class="form-group" style="margin-bottom: 1rem;">
-                    <label for="field-subject">Subject</label>
-                    <input type="text" id="field-subject" name="subject" class="form-control" placeholder="Project Inquiry / Collaboration" required>
-                </div>
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label for="field-message">Message</label>
+                        <textarea id="field-message" name="message" class="form-control" rows="5" style="resize: vertical;" placeholder="Tell me about your project..." required></textarea>
+                    </div>
 
-                <div class="form-group" style="margin-bottom: 1.5rem;">
-                    <label for="field-message">Message</label>
-                    <textarea id="field-message" name="message" class="form-control" rows="4" style="resize: vertical;" placeholder="Tell me about your project..." required></textarea>
-                </div>
-
-                <button type="submit" id="submit-btn" class="btn btn-primary contact-submit-btn">
-                    <span id="btn-text">Send Message</span>
-                    <i id="btn-icon" class="fas fa-paper-plane"></i>
-                    <i id="btn-spinner" class="fas fa-spinner fa-spin" style="display: none;"></i>
-                </button>
-            </form>
+                    <button type="submit" id="submit-btn" class="btn btn-primary contact-submit-btn">
+                        <span id="btn-text">Send Message</span>
+                        <i id="btn-icon" class="fas fa-paper-plane"></i>
+                        <i id="btn-spinner" class="fas fa-spinner fa-spin" style="display: none;"></i>
+                    </button>
+                </form>
+            </div>
 
             <!-- Contact Info Footer -->
             <div class="contact-info-row">
@@ -85,7 +64,28 @@
                     <a href="tel:01226622320" class="contact-info-value">01226622320</a>
                 </div>
             </div>
+        </div>
 
+        <!-- RIGHT SIDE: Image Card next to form -->
+        <div class="glass-panel contact-image-card" data-aos="fade-left">
+            <div class="contact-image-wrapper">
+                <img src="{% static 'images/Contact.jpeg' %}" alt="Mariam Mohamed Ali" class="contact-card-img">
+            </div>
+            <div class="contact-image-footer">
+                <h3 class="contact-image-name">Mariam Mohamed Ali</h3>
+                <p class="contact-image-role">Full-Stack Developer</p>
+                <div class="contact-social-row">
+                    <a href="https://github.com/mariammohamedali127" target="_blank" class="social-pill-icon" title="GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mariam-mohamed127" target="_blank" class="social-pill-icon" title="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="mailto:mariammohamedali127@gmail.com" class="social-pill-icon" title="Email">
+                        <i class="fas fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
         </div>
 
     </div>
@@ -93,119 +93,47 @@
 </div>
 
 <style>
-/* ── Contact Page Layout ── */
+/* ── Contact Page Split Layout ── */
 .contact-page {
-    padding-top: 120px;
+    padding-top: 130px;
     padding-bottom: 80px;
-    max-width: 720px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
     min-height: 100vh;
 }
 
-.contact-card-wrapper {
+.contact-split-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 2rem;
+    align-items: stretch;
+}
+
+/* Left Card: Form */
+.contact-form-card {
+    padding: 2.5rem;
     border-radius: 24px;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
 }
 
-/* ── Banner Image Box ── */
-.contact-banner-box {
-    width: 100%;
-    height: 320px;
-    overflow: hidden;
-    position: relative;
-    background: #0d0a08;
-    border-bottom: 1px solid var(--border-color);
-}
-
-.contact-banner-img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    object-position: center 22%;
-    display: block;
-    transition: transform 0.6s ease;
-}
-
-.contact-card-wrapper:hover .contact-banner-img {
-    transform: scale(1.02);
-}
-
-/* ── Content Body ── */
-.contact-body {
-    padding: 2.2rem 2.5rem;
-}
-
-.contact-header-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5rem;
-    flex-wrap: wrap;
-    margin-bottom: 1.5rem;
-}
-
-.contact-header-text {
-    flex: 1;
-    min-width: 250px;
-}
-
-.contact-caption-title {
-    font-family: var(--font-heading) !important;
-    font-size: 2.4rem !important;
+.contact-title {
+    font-size: 2.2rem;
     font-weight: 700;
     color: var(--text-main);
-    line-height: 1.1;
     margin-bottom: 0.4rem;
+    line-height: 1.2;
 }
 
-.contact-caption-sub {
-    font-family: var(--font-body) !important;
-    font-size: 0.98rem;
+.contact-subtitle {
+    font-size: 0.95rem;
     color: var(--text-muted);
-}
-
-.contact-social-pills {
-    display: flex;
-    gap: 0.75rem;
-}
-
-.social-pill-icon {
-    width: 42px;
-    height: 42px;
-    border-radius: 50%;
-    background: rgba(201, 168, 124, 0.08);
-    border: 1px solid rgba(201, 168, 124, 0.25);
-    color: var(--text-muted);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 1.05rem;
-    transition: var(--transition);
-}
-
-.social-pill-icon:hover {
-    background: rgba(201, 168, 124, 0.2);
-    border-color: var(--primary);
-    color: var(--primary);
-    transform: translateY(-3px);
-}
-
-.contact-divider {
-    height: 1px;
-    background: var(--border-color);
-    margin: 1.5rem 0;
-}
-
-.contact-form-subtitle {
-    font-family: var(--font-heading) !important;
-    font-size: 1.8rem;
-    color: var(--primary);
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.8rem;
 }
 
 .contact-grid-2 {
@@ -222,7 +150,7 @@
 }
 
 .form-group label {
-    font-size: 0.82rem;
+    font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.8px;
@@ -238,10 +166,9 @@
     margin-top: 0.5rem;
 }
 
-/* Contact Info Footer */
 .contact-info-row {
     display: flex;
-    gap: 3rem;
+    gap: 2.5rem;
     flex-wrap: wrap;
     margin-top: 2rem;
     padding-top: 1.5rem;
@@ -263,7 +190,7 @@
 }
 
 .contact-info-value {
-    font-size: 0.92rem;
+    font-size: 0.9rem;
     font-weight: 500;
     color: var(--text-main);
     transition: color 0.2s ease;
@@ -271,6 +198,88 @@
 
 .contact-info-value:hover {
     color: var(--primary);
+}
+
+/* Right Card: Image */
+.contact-image-card {
+    border-radius: 24px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    min-height: 100%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+}
+
+.contact-image-wrapper {
+    flex: 1;
+    width: 100%;
+    min-height: 380px;
+    position: relative;
+    overflow: hidden;
+    background: #0d0a08;
+}
+
+.contact-card-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.contact-image-card:hover .contact-card-img {
+    transform: scale(1.03);
+}
+
+.contact-image-footer {
+    padding: 1.5rem;
+    background: rgba(28, 24, 20, 0.95);
+    border-top: 1px solid var(--border-color);
+    text-align: center;
+}
+
+.contact-image-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-main);
+    margin-bottom: 0.2rem;
+}
+
+.contact-image-role {
+    font-size: 0.85rem;
+    color: var(--primary);
+    margin-bottom: 1rem;
+    font-weight: 500;
+}
+
+.contact-social-row {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.social-pill-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(201, 168, 124, 0.08);
+    border: 1px solid rgba(201, 168, 124, 0.25);
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.social-pill-icon:hover {
+    background: rgba(201, 168, 124, 0.2);
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-3px);
 }
 
 /* Alert */
@@ -285,29 +294,30 @@
     color: #86efac;
 }
 
-/* ── Responsive Mobile ── */
-@media (max-width: 640px) {
+/* Responsive */
+@media (max-width: 900px) {
     .contact-page {
         padding-top: 100px;
         padding-left: 1rem;
         padding-right: 1rem;
     }
 
-    .contact-banner-box {
-        height: 230px;
+    .contact-split-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
     }
 
-    .contact-body {
-        padding: 1.5rem 1.4rem;
-    }
-
-    .contact-caption-title {
-        font-size: 2rem !important;
+    .contact-form-card {
+        padding: 1.8rem 1.4rem;
     }
 
     .contact-grid-2 {
         grid-template-columns: 1fr;
-        gap: 1rem;
+    }
+
+    .contact-image-wrapper {
+        min-height: 320px;
+        max-height: 420px;
     }
 }
 </style>
