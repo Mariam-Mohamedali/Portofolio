@@ -6,20 +6,23 @@
 
     <!-- TOP: Full-Width Image Banner -->
     <div class="contact-banner" data-aos="fade-down">
+        <!-- Image at natural size — no zoom, no crop -->
         <img src="{% static 'images/Contact.jpeg' %}" alt="Mariam Mohamed" class="contact-banner-img">
-        <div class="contact-banner-overlay">
-            <div class="contact-banner-text">
-                <h1 class="contact-banner-title">Let's build something awesome.</h1>
-                <p class="contact-banner-sub">Have a project in mind? I'd love to hear from you!</p>
-            </div>
-            <div class="social-icons contact-social">
-                <a href="https://github.com/mariammohamedali127" target="_blank" class="contact-social-icon">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/mariam-mohamed127" target="_blank" class="contact-social-icon">
-                    <i class="fab fa-linkedin-in"></i>
-                </a>
-            </div>
+    </div>
+
+    <!-- Caption below image -->
+    <div class="contact-caption" data-aos="fade-up">
+        <div class="contact-caption-text">
+            <h2 class="contact-caption-title">Let's build something awesome.</h2>
+            <p class="contact-caption-sub">Have a project in mind? I'd love to hear from you!</p>
+        </div>
+        <div class="social-icons contact-social">
+            <a href="https://github.com/mariammohamedali127" target="_blank" class="contact-social-icon">
+                <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/mariam-mohamed127" target="_blank" class="contact-social-icon">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
         </div>
     </div>
 
@@ -82,74 +85,72 @@
 
 /* ── Banner ── */
 .contact-banner {
-    position: relative;
     width: 100%;
     border-radius: 20px;
     overflow: hidden;
-    margin-bottom: 2rem;
-    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    margin-bottom: 0;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
 }
 
+/* Natural size — no zoom, no max-height restriction */
 .contact-banner-img {
     display: block;
     width: 100%;
     height: auto;
-    max-height: 380px;
-    object-fit: cover;
-    object-position: center 20%;
 }
 
-.contact-banner-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(
-        to right,
-        rgba(19, 16, 13, 0.92) 0%,
-        rgba(19, 16, 13, 0.5) 50%,
-        transparent 100%
-    );
+/* Caption row below image */
+.contact-caption {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1rem;
+    padding: 1.4rem 0.5rem;
+    margin-bottom: 1.8rem;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.contact-caption-text {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    padding: 2.5rem 3rem;
-    gap: 1.2rem;
+    gap: 0.2rem;
 }
 
-.contact-banner-title {
+.contact-caption-title {
     font-family: var(--font-heading);
-    font-size: 2.6rem;
+    font-size: 1.8rem;
     font-weight: 600;
     color: var(--text-main);
     line-height: 1.2;
-    text-shadow: 0 2px 12px rgba(0,0,0,0.7);
 }
 
-.contact-banner-sub {
-    font-size: 1rem;
+.contact-caption-sub {
+    font-size: 0.9rem;
     color: var(--text-muted);
     font-family: var(--font-body);
-    max-width: 380px;
 }
 
-/* Social icons in banner */
+/* Social icons in caption */
 .contact-social {
     margin-top: 0;
     justify-content: flex-start;
     gap: 0.7rem;
+    font-size: 1rem;
 }
 
 .contact-social-icon {
     width: 38px !important;
     height: 38px !important;
     font-size: 0.95rem !important;
-    background: rgba(201, 168, 124, 0.12) !important;
-    border: 1px solid rgba(201, 168, 124, 0.3) !important;
-    color: var(--text-main) !important;
+    background: rgba(201, 168, 124, 0.08) !important;
+    border: 1px solid rgba(201, 168, 124, 0.25) !important;
+    color: var(--text-muted) !important;
     transition: var(--transition);
 }
 
 .contact-social-icon:hover {
-    background: rgba(201, 168, 124, 0.22) !important;
+    background: rgba(201, 168, 124, 0.18) !important;
     border-color: var(--primary) !important;
     color: var(--primary) !important;
     transform: translateY(-3px);
