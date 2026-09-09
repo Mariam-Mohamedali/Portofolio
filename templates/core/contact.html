@@ -4,111 +4,161 @@
 {% block content %}
 <div class="contact-page">
 
-    <!-- Page Header -->
-    <div class="contact-header" data-aos="fade-down">
-        <h1 class="section-title">Get in Touch</h1>
-        <p class="section-subtitle">Have a project in mind? I'd love to hear from you!</p>
-    </div>
-
-    <!-- Contact Card -->
-    <div class="contact-card glass-panel" data-aos="fade-up">
-
-        <!-- Left: Form -->
-        <div class="contact-form-side">
-            <h2 class="contact-form-title">Send a Message</h2>
-
-            {% if messages %}
-            <div style="margin-bottom: 1.5rem;">
-                {% for message in messages %}
-                <div class="contact-alert contact-alert--success">{{ message }}</div>
-                {% endfor %}
+    <!-- TOP: Full-Width Image Banner -->
+    <div class="contact-banner" data-aos="fade-down">
+        <img src="{% static 'images/Contact.jpeg' %}" alt="Mariam Mohamed" class="contact-banner-img">
+        <div class="contact-banner-overlay">
+            <div class="contact-banner-text">
+                <h1 class="contact-banner-title">Let's build something awesome.</h1>
+                <p class="contact-banner-sub">Have a project in mind? I'd love to hear from you!</p>
             </div>
-            {% endif %}
-
-            <div id="emailjs-status" style="display: none; margin-bottom: 1.2rem;"></div>
-
-            <form id="contact-form" method="POST" action="{% url 'contact' %}">
-                {% csrf_token %}
-                <div class="contact-grid-2">
-                    <input type="text" id="field-name" name="name" class="form-control" placeholder="Your Name" required>
-                    <input type="email" id="field-email" name="email" class="form-control" placeholder="Your Email" required>
-                </div>
-                <input type="text" id="field-subject" name="subject" class="form-control contact-input-gap" placeholder="Subject" required>
-                <textarea id="field-message" name="message" class="form-control contact-input-gap" rows="4" placeholder="Tell me about your project..." required style="resize: vertical;"></textarea>
-
-                <button type="submit" id="submit-btn" class="btn btn-primary contact-submit-btn">
-                    <span id="btn-text">Send Message</span>
-                    <i id="btn-icon" class="fas fa-paper-plane"></i>
-                    <i id="btn-spinner" class="fas fa-spinner fa-spin" style="display: none;"></i>
-                </button>
-            </form>
-
-            <!-- Contact Info -->
-            <div class="contact-info-row">
-                <div class="contact-info-item">
-                    <span class="contact-info-label"><i class="fas fa-envelope"></i> Email</span>
-                    <span class="contact-info-value">mariammohamedali127@gmail.com</span>
-                </div>
-                <div class="contact-info-item">
-                    <span class="contact-info-label"><i class="fas fa-phone-alt"></i> Phone</span>
-                    <span class="contact-info-value">01226622320</span>
-                </div>
+            <div class="social-icons contact-social">
+                <a href="https://github.com/mariammohamedali127" target="_blank" class="contact-social-icon">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/mariam-mohamed127" target="_blank" class="contact-social-icon">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
             </div>
         </div>
+    </div>
 
-        <!-- Right: Image -->
-        <div class="contact-image-side">
-            <div class="contact-img-wrap">
-                <img src="{% static 'images/Contact.jpeg' %}" alt="Mariam Mohamed" class="contact-photo">
+    <!-- BOTTOM: Form Card -->
+    <div class="contact-form-card glass-panel" data-aos="fade-up">
+        <h2 class="contact-form-title">Get in Touch</h2>
+
+        {% if messages %}
+        <div style="margin-bottom: 1.2rem;">
+            {% for message in messages %}
+            <div class="contact-alert contact-alert--success">{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <div id="emailjs-status" style="display: none; margin-bottom: 1.2rem;"></div>
+
+        <form id="contact-form" method="POST" action="{% url 'contact' %}">
+            {% csrf_token %}
+            <div class="contact-grid-2">
+                <input type="text" id="field-name" name="name" class="form-control" placeholder="Your Name" required>
+                <input type="email" id="field-email" name="email" class="form-control" placeholder="Your Email" required>
             </div>
+            <input type="text" id="field-subject" name="subject" class="form-control" style="margin-bottom: 1rem;" placeholder="Subject" required>
+            <textarea id="field-message" name="message" class="form-control" rows="4" style="margin-bottom: 1.5rem; resize: vertical;" placeholder="Tell me about your project..." required></textarea>
 
-            <div class="contact-image-overlay">
-                <h3 class="contact-overlay-text">Let's build something awesome.</h3>
-                <div class="social-icons contact-social">
-                    <a href="https://github.com/mariammohamedali127" target="_blank" class="contact-social-icon">
-                        <i class="fab fa-github"></i>
-                    </a>
-                    <a href="https://www.linkedin.com/in/mariam-mohamed127" target="_blank" class="contact-social-icon">
-                        <i class="fab fa-linkedin-in"></i>
-                    </a>
-                </div>
+            <button type="submit" id="submit-btn" class="btn btn-primary contact-submit-btn">
+                <span id="btn-text">Send Message</span>
+                <i id="btn-icon" class="fas fa-paper-plane"></i>
+                <i id="btn-spinner" class="fas fa-spinner fa-spin" style="display: none;"></i>
+            </button>
+        </form>
+
+        <!-- Contact Info -->
+        <div class="contact-info-row">
+            <div class="contact-info-item">
+                <span class="contact-info-label"><i class="fas fa-envelope"></i> Email</span>
+                <span class="contact-info-value">mariammohamedali127@gmail.com</span>
+            </div>
+            <div class="contact-info-item">
+                <span class="contact-info-label"><i class="fas fa-phone-alt"></i> Phone</span>
+                <span class="contact-info-value">01226622320</span>
             </div>
         </div>
-
     </div>
+
 </div>
 
 <style>
 /* ── Contact Page ── */
 .contact-page {
-    padding: 130px 5% 80px;
-    max-width: 1100px;
+    padding-top: 100px;
+    padding-bottom: 80px;
+    max-width: 860px;
     margin: 0 auto;
+    padding-left: 5%;
+    padding-right: 5%;
     min-height: 100vh;
 }
 
-.contact-header {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-/* Card */
-.contact-card {
-    display: flex;
-    border-radius: 24px;
+/* ── Banner ── */
+.contact-banner {
+    position: relative;
+    width: 100%;
+    border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-    padding: 0;
+    margin-bottom: 2rem;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
 }
 
-/* Form Side */
-.contact-form-side {
-    flex: 1 1 0;
-    padding: 3rem 3.5rem;
+.contact-banner-img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 380px;
+    object-fit: cover;
+    object-position: center 20%;
+}
+
+.contact-banner-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        to right,
+        rgba(19, 16, 13, 0.92) 0%,
+        rgba(19, 16, 13, 0.5) 50%,
+        transparent 100%
+    );
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-width: 0;
+    padding: 2.5rem 3rem;
+    gap: 1.2rem;
+}
+
+.contact-banner-title {
+    font-family: var(--font-heading);
+    font-size: 2.6rem;
+    font-weight: 600;
+    color: var(--text-main);
+    line-height: 1.2;
+    text-shadow: 0 2px 12px rgba(0,0,0,0.7);
+}
+
+.contact-banner-sub {
+    font-size: 1rem;
+    color: var(--text-muted);
+    font-family: var(--font-body);
+    max-width: 380px;
+}
+
+/* Social icons in banner */
+.contact-social {
+    margin-top: 0;
+    justify-content: flex-start;
+    gap: 0.7rem;
+}
+
+.contact-social-icon {
+    width: 38px !important;
+    height: 38px !important;
+    font-size: 0.95rem !important;
+    background: rgba(201, 168, 124, 0.12) !important;
+    border: 1px solid rgba(201, 168, 124, 0.3) !important;
+    color: var(--text-main) !important;
+    transition: var(--transition);
+}
+
+.contact-social-icon:hover {
+    background: rgba(201, 168, 124, 0.22) !important;
+    border-color: var(--primary) !important;
+    color: var(--primary) !important;
+    transform: translateY(-3px);
+}
+
+/* ── Form Card ── */
+.contact-form-card {
+    padding: 2.5rem 3rem;
+    border-radius: 20px;
 }
 
 .contact-form-title {
@@ -116,7 +166,7 @@
     font-size: 2rem;
     font-weight: 500;
     color: var(--primary);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.8rem;
     letter-spacing: 0.5px;
 }
 
@@ -127,23 +177,18 @@
     margin-bottom: 1rem;
 }
 
-.contact-input-gap {
-    margin-bottom: 1rem;
-}
-
 .contact-submit-btn {
     width: 100%;
-    padding: 0.95rem;
+    padding: 1rem;
     font-size: 1rem;
     border-radius: 12px;
-    margin-bottom: 0;
     gap: 0.5rem;
 }
 
 /* Contact Info */
 .contact-info-row {
     display: flex;
-    gap: 2rem;
+    gap: 2.5rem;
     flex-wrap: wrap;
     margin-top: 1.8rem;
     padding-top: 1.5rem;
@@ -153,14 +198,14 @@
 .contact-info-item {
     display: flex;
     flex-direction: column;
-    gap: 0.25rem;
+    gap: 0.3rem;
 }
 
 .contact-info-label {
     font-size: 0.72rem;
     font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.2px;
     color: var(--primary);
 }
 
@@ -182,121 +227,36 @@
     color: #86efac;
 }
 
-/* Image Side */
-.contact-image-side {
-    flex: 0 0 340px;
-    position: relative;
-    background: #0e0b08;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    overflow: hidden;
-}
-
-.contact-img-wrap {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #0e0b08;
-}
-
-/* THE KEY FIX: contain shows the full image at natural proportions */
-.contact-photo {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    object-position: center top;
-    display: block;
-}
-
-.contact-image-overlay {
-    position: relative;
-    z-index: 2;
-    width: 100%;
-    padding: 1.5rem 2rem;
-    background: linear-gradient(to top, rgba(14,11,8,0.98) 0%, rgba(14,11,8,0.7) 60%, transparent 100%);
-}
-
-.contact-overlay-text {
-    font-family: var(--font-heading);
-    font-size: 1.6rem;
-    color: var(--text-main);
-    line-height: 1.3;
-    margin-bottom: 0.8rem;
-    font-weight: 600;
-}
-
-.contact-social {
-    margin-top: 0;
-    justify-content: flex-start;
-    gap: 0.7rem;
-    font-size: 1rem;
-}
-
-.contact-social-icon {
-    background: rgba(201, 168, 124, 0.1) !important;
-    border: 1px solid rgba(201, 168, 124, 0.25) !important;
-    color: var(--text-main) !important;
-    width: 36px !important;
-    height: 36px !important;
-    font-size: 0.9rem !important;
-    transition: var(--transition);
-}
-
-.contact-social-icon:hover {
-    background: rgba(201, 168, 124, 0.2) !important;
-    border-color: var(--primary) !important;
-    color: var(--primary) !important;
-    transform: translateY(-2px);
-}
-
 /* ── Responsive ── */
-@media (max-width: 900px) {
-    .contact-card {
-        flex-direction: column;
-    }
-
-    .contact-image-side {
-        flex: 0 0 auto;
-        width: 100%;
-        min-height: 320px;
-        order: -1; /* image on top on mobile */
-    }
-
-    .contact-form-side {
-        padding: 2.5rem 2rem;
-    }
-}
-
-@media (max-width: 560px) {
+@media (max-width: 640px) {
     .contact-page {
-        padding: 110px 4% 60px;
+        padding-top: 100px;
     }
 
-    .contact-form-side {
+    .contact-banner-img {
+        max-height: 260px;
+    }
+
+    .contact-banner-overlay {
+        padding: 1.5rem 1.8rem;
+    }
+
+    .contact-banner-title {
+        font-size: 1.8rem;
+    }
+
+    .contact-form-card {
         padding: 2rem 1.5rem;
     }
 
     .contact-grid-2 {
         grid-template-columns: 1fr;
     }
-
-    .contact-form-title {
-        font-size: 1.6rem;
-    }
-
-    .contact-image-side {
-        min-height: 260px;
-    }
 }
 </style>
 {% endblock %}
 
 {% block extra_js %}
-<!-- EmailJS SDK -->
 <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 <script>
     emailjs.init('-99QBbTJU7QygGsOq');
