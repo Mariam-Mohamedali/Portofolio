@@ -1,0 +1,271 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- ═══════════════════════ HERO SECTION ═══════════════════════ -->
+<section class="hero" id="home">
+    <div id="particles-js"></div>
+
+    <div class="hero-container" data-aos="fade-up"
+        style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; max-width: 1200px; margin: 0 auto; width: 100%; gap: 4rem; z-index: 1; position: relative; padding: 2rem 0;">
+
+        <!-- Left Side: Text -->
+        <div class="hero-text text-content" style="flex: 1.2; min-width: 320px;">
+            <h1 style="color: var(--text-main); font-size: clamp(2.8rem, 5vw, 4.5rem); font-weight: 800; line-height: 1.1; letter-spacing: -2px; margin-bottom: 1rem;">
+                Hi, I'm <br><span style="color: var(--primary);">Mariam Mohamed Ali</span>
+            </h1>
+
+            <h2 style="font-size: clamp(1.4rem, 2.8vw, 2rem); font-weight: 600; color: var(--text-muted); margin-bottom: 1.5rem;">
+                I build <span class="typing-text" style="color: var(--text-main); font-weight: 700;"></span>
+            </h2>
+
+            <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 2.5rem; max-width: 540px; line-height: 1.8;">
+                Full-Stack Developer & AI/CS Student from Cairo. Specializing in Django backend architecture, web applications, and software engineering.
+            </p>
+
+            <div style="display: flex; gap: 1.2rem; margin-bottom: 2.5rem; flex-wrap: wrap; align-items: center;">
+                <a href="{% url 'projects' %}" class="btn btn-primary" style="padding: 0.9rem 2.2rem;">
+                    View Projects <i class="fas fa-arrow-right" style="margin-left: 0.4rem;"></i>
+                </a>
+                <a href="{% url 'contact' %}" class="btn btn-outline" style="padding: 0.9rem 2.2rem;">
+                    Contact Me <i class="fas fa-envelope" style="margin-left: 0.4rem;"></i>
+                </a>
+            </div>
+
+            <div class="social-icons" style="display: flex; gap: 1rem; font-size: 1.3rem; margin-top: 0; justify-content: flex-start;">
+                <a href="https://github.com/mariammohamedali127" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/mariam-mohamed127" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="mailto:mariammohamedali127@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+
+        <!-- Right Side: Profile Image -->
+        <div class="hero-image image-content"
+            style="flex: 1; min-width: 300px; display: flex; justify-content: center; position: relative;">
+            <div style="width: 100%; max-width: 360px; aspect-ratio: 4/5; border-radius: 20px; overflow: hidden; position: relative; z-index: 2; background: var(--bg-card); border: 1px solid var(--border-color); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);">
+                <img src="{% static 'images/First.jpeg' %}" alt="Mariam Mohamed Ali"
+                    style="width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease;"
+                    onerror="this.outerHTML='<div class=\'image-placeholder\' style=\'width:100%; height:100%; padding: 2rem; display: flex; align-items: center; justify-content: center;\'>Mariam Photo</div>'">
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ═══════════════════════ STATS BAR ═══════════════════════ -->
+<section class="stats-section" data-aos="fade-up">
+    <div class="stats-container">
+        <div class="stat-item">
+            <i class="fas fa-code-branch" style="font-size: 1.4rem; color: var(--primary); margin-bottom: 0.5rem; display: block;"></i>
+            <span class="stat-number" data-target="{{ project_count }}">0</span><span class="stat-plus">+</span>
+            <span class="stat-label">Projects Built</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <i class="fas fa-certificate" style="font-size: 1.4rem; color: var(--secondary); margin-bottom: 0.5rem; display: block;"></i>
+            <span class="stat-number" data-target="{{ cert_count }}">0</span>
+            <span class="stat-label">Certificates</span>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item">
+            <i class="fas fa-laptop-code" style="font-size: 1.4rem; color: var(--primary); margin-bottom: 0.5rem; display: block;"></i>
+            <span class="stat-number" data-target="2">0</span><span class="stat-plus">+</span>
+            <span class="stat-label">Years Coding</span>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════ FEATURED PROJECTS ═══════════════════════ -->
+<section class="home-section" id="featured-projects">
+    <div class="home-section-inner">
+        <p class="section-tag" data-aos="fade-up"><i class="fas fa-star" style="color: var(--primary);"></i> Featured Work</p>
+        <h2 class="section-title" data-aos="fade-up" style="margin-bottom: 0.8rem;">Featured Projects</h2>
+        <p class="section-subtitle" data-aos="fade-up">A selection of recent projects that showcase my software development skills.</p>
+
+        <div class="projects-grid" style="margin-top: 3rem;">
+            {% for project in featured_projects %}
+            <div class="glass-panel project-card" data-aos="fade-up" data-aos-delay="{{ forloop.counter }}00">
+
+                <!-- Card Header: Icon + Category -->
+                <div class="project-card-header">
+                    <div class="project-card-icon">
+                        {% if project.category == 'django' %}<i class="devicon-django-plain"></i>
+                        {% elif project.category == 'frontend' %}<i class="fab fa-html5"></i>
+                        {% elif project.category == 'java' %}<i class="devicon-java-plain"></i>
+                        {% elif project.category == 'cpp' %}<i class="devicon-cplusplus-plain"></i>
+                        {% else %}<i class="fas fa-code"></i>{% endif %}
+                    </div>
+                    <div style="display: flex; flex-direction: column; gap: 0.3rem; flex: 1;">
+                        <span class="project-cat-pill">{{ project.get_category_display }}</span>
+                        {% if project.start_date %}
+                        <span style="font-size: 0.78rem; color: var(--text-muted);">
+                            <i class="far fa-calendar-alt" style="margin-right: 0.3rem;"></i>{{ project.start_date }}
+                        </span>
+                        {% endif %}
+                    </div>
+                    {% if project.github_url %}
+                    <a href="{{ project.github_url }}" target="_blank" class="project-gh-link" title="View on GitHub">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    {% endif %}
+                </div>
+
+                <h3 class="project-card-title">{{ project.title }}</h3>
+                <p class="project-card-desc">{{ project.description }}</p>
+
+                <div class="tech-stack">
+                    {% for tech in project.get_tech_list %}
+                    <span class="tech-badge">{{ tech }}</span>
+                    {% endfor %}
+                </div>
+
+                {% if project.live_url %}
+                <div style="margin-top: 1rem; padding-top: 1rem; border-top: 1px solid var(--border-color);">
+                    <a href="{{ project.live_url }}" target="_blank" class="btn btn-primary"
+                        style="padding: 0.6rem 1.2rem; font-size: 0.88rem; border-radius: 10px; width: 100%;">
+                        <i class="fas fa-external-link-alt"></i> Live Demo
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+            {% empty %}
+            <p style="text-align: center; grid-column: 1/-1; color: var(--text-muted);">No featured projects yet.</p>
+            {% endfor %}
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;" data-aos="fade-up">
+            <a href="{% url 'projects' %}" class="btn btn-outline" style="padding: 0.9rem 2.5rem;">
+                View All Projects <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════ CERTIFICATES ═══════════════════════ -->
+<section class="home-section" id="certs-preview" style="border-top: 1px solid var(--border-color);">
+    <div class="home-section-inner">
+        <p class="section-tag" data-aos="fade-up"><i class="fas fa-award" style="color: var(--primary);"></i> Achievements</p>
+        <h2 class="section-title" data-aos="fade-up" style="margin-bottom: 0.8rem;">Certifications & Recognition</h2>
+        <p class="section-subtitle" data-aos="fade-up">Verified credentials and professional achievements.</p>
+
+        <div class="certs-grid" style="margin-top: 3rem;">
+            {% for cert in certificates %}
+            <div class="cert-card-modern glass-panel" data-aos="fade-up" data-aos-delay="{{ forloop.counter }}00">
+                <div style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 0.5rem;">
+                    <div class="cert-icon-modern">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <div style="flex: 1;">
+                        <h4 class="cert-title-modern" style="margin-bottom: 0.3rem;">{{ cert.title }}</h4>
+                        <p style="color: var(--primary); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin: 0; line-height: 1.4;">
+                            {{ cert.issuer }}
+                        </p>
+                    </div>
+                </div>
+                
+                <p class="cert-date-modern">
+                    <i class="far fa-calendar-alt"></i> {{ cert.date }}
+                </p>
+                
+                {% if cert.link %}
+                <div class="cert-footer-modern">
+                    <a href="{{ cert.link }}" target="_blank" class="btn btn-outline" style="width: 100%; padding: 0.6rem; font-size: 0.88rem;">
+                        <i class="fas fa-external-link-alt" style="margin-right: 0.4rem;"></i> Verify Credential
+                    </a>
+                </div>
+                {% endif %}
+            </div>
+            {% empty %}
+            <p style="text-align: center; grid-column: 1/-1; color: var(--text-muted);">No certificates yet.</p>
+            {% endfor %}
+        </div>
+
+        <div style="text-align: center; margin-top: 3rem;" data-aos="fade-up">
+            <a href="{% url 'certificates' %}" class="btn btn-outline" style="padding: 0.9rem 2.5rem;">
+                View All Certificates <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- ═══════════════════════ CTA SECTION ═══════════════════════ -->
+<section class="cta-section" data-aos="fade-up">
+    <div class="cta-inner glass-panel">
+        <p class="section-tag" style="color: var(--primary);"><i class="fas fa-paper-plane"></i> Let's Connect</p>
+        <h2 class="cta-title">Have a project in mind?</h2>
+        <p class="cta-subtitle">I'm currently available for freelance projects and engineering opportunities.</p>
+        <a href="{% url 'contact' %}" class="btn btn-primary cta-btn">
+            Get In Touch <i class="fas fa-paper-plane" style="margin-left: 0.5rem;"></i>
+        </a>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // Typed.js
+    var options = {
+        strings: ['Full-Stack Web Apps.', 'Django Systems.', 'AI & ML Projects.'],
+        typeSpeed: 60,
+        backSpeed: 40,
+        backDelay: 2000,
+        loop: true
+    };
+    var typed = new Typed('.typing-text', options);
+
+    // Particles.js - soft subtle setup
+    particlesJS('particles-js', {
+        "particles": {
+            "number": { "value": 35, "density": { "enable": true, "value_area": 900 } },
+            "color": { "value": "#c9a87c" },
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.2, "random": false },
+            "size": { "value": 2.5, "random": true },
+            "line_linked": { "enable": true, "distance": 150, "color": "#c9a87c", "opacity": 0.1, "width": 1 },
+            "move": { "enable": true, "speed": 1, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+            "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 0.35 } } }
+        },
+        "retina_detect": true
+    });
+
+    // Animated Counters
+    function animateCounters() {
+        const counters = document.querySelectorAll('.stat-number');
+        counters.forEach(counter => {
+            const target = +counter.getAttribute('data-target');
+            const duration = 2000;
+            const step = target / (duration / 16);
+            let current = 0;
+
+            const updateCounter = () => {
+                current += step;
+                if (current < target) {
+                    counter.textContent = Math.ceil(current);
+                    requestAnimationFrame(updateCounter);
+                } else {
+                    counter.textContent = target;
+                }
+            };
+            updateCounter();
+        });
+    }
+
+    // Observer
+    const statsObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                animateCounters();
+                statsObserver.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.5 });
+
+    const statsSection = document.querySelector('.stats-section');
+    if (statsSection) statsObserver.observe(statsSection);
+</script>
+{% endblock %}

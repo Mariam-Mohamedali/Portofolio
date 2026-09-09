@@ -1,0 +1,180 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="page-container">
+    <h1 class="section-title" data-aos="fade-down">About Me</h1>
+
+    <!-- Intro Section (Unified Layout) -->
+    <div class="glass-panel" style="padding: 4rem 3rem; margin-bottom: 4rem;" data-aos="fade-up">
+        <div class="form-row" style="align-items: center; margin-bottom: 0; gap: 4rem;">
+
+            <!-- Left: Text Content -->
+            <div class="text-content" style="text-align: left;">
+                <h2
+                    style="margin-bottom: 1.5rem; color: var(--text-main); font-size: 2.8rem; font-weight: 800; letter-spacing: -1px;">
+                    Hello, I'm <span style="color: var(--primary);">Mariam.</span></h2>
+                <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem;">
+                    I'm a passionate Full-Stack Developer and AI & CS Student. I specialize in building robust backend
+                    systems with Django and crafting clean, modern frontend experiences.
+                </p>
+                <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.8;">
+                    I love solving complex problems, turning ideas into scalable applications, and constantly learning
+                    new technologies to stay ahead in the tech world.
+                </p>
+            </div>
+
+            <!-- Right: Dynamic Image Frame -->
+            <div class="image-content" style="display: flex; justify-content: center; position: relative;">
+                <div style="width: 100%; max-width: 320px; aspect-ratio: 1/1; border-radius: 24px; overflow: hidden; border: 6px solid var(--bg-main); box-shadow: 0 20px 40px rgba(0,0,0,0.4); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);"
+                    onmouseover="this.style.transform='translateY(-6px)'"
+                    onmouseout="this.style.transform='translateY(0)'">
+                    <img src="{% static 'images/WhatsApp Image 2026-07-21 at 3.51.06 AM.jpeg' %}" alt="Mariam"
+                        style="width: 100%; height: 100%; object-fit: cover;"
+                        onerror="this.outerHTML='<div class=\'image-placeholder\' style=\'width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: var(--bg-card); border: none;\'>Save your photo<br>as about-profile.jpg</div>'">
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="about-grid">
+        <!-- Timeline Section (Education & Experience) -->
+        <div data-aos="fade-right">
+            <h2 style="margin-bottom: 2rem; color: var(--primary); display: flex; align-items: center; gap: 0.5rem;">
+                <i class="fas fa-route"></i> My Journey
+            </h2>
+
+            <div style="position: relative; padding-left: 2rem; border-left: 2px solid var(--border-color);">
+
+                <!-- Education -->
+                <div style="position: relative; margin-bottom: 3rem;">
+                    <div
+                        style="position: absolute; left: -2.55rem; top: 0; width: 20px; height: 20px; background: var(--bg-main); border: 4px solid var(--primary); border-radius: 50%;">
+                    </div>
+                    <div class="glass-panel" style="padding: 1.5rem;">
+                        <h3 style="color: var(--text-main); font-size: 1.2rem; margin-bottom: 0.2rem;">Faculty of
+                            Computers and Artificial Intelligence</h3>
+                        <p style="color: var(--primary); font-weight: 500; font-size: 0.9rem; margin-bottom: 1rem;">
+                            Cairo University</p>
+                        <p style="color: var(--text-muted); font-size: 0.95rem;">
+                            Pursuing a degree in Artificial Intelligence and Computer Science, building a strong
+                            foundation in software engineering, algorithms, and advanced AI concepts.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Experience: SCCI -->
+                <div style="position: relative; margin-bottom: 3rem;">
+                    <div
+                        style="position: absolute; left: -2.55rem; top: 0; width: 20px; height: 20px; background: var(--bg-main); border: 4px solid var(--secondary); border-radius: 50%;">
+                    </div>
+                    <div class="glass-panel" style="padding: 1.5rem;">
+                        <h3 style="color: var(--text-main); font-size: 1.2rem; margin-bottom: 0.2rem;">IT Member</h3>
+                        <p style="color: var(--secondary); font-weight: 500; font-size: 0.9rem; margin-bottom: 1rem;">
+                            SCCI Season 26</p>
+                        <p style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1rem;">
+                            Contributed to the development and maintenance of the official SCCI platform, managing
+                            technical infrastructure and teaching participants essential IT skills.
+                        </p>
+                        <img src="{% static 'images/SCCI.jpeg' %}" alt="SCCI IT Member"
+                            style="width: 100%; border-radius: 8px; border: 1px solid var(--border-color);"
+                            onerror="this.outerHTML='<div class=\'image-placeholder\' style=\'padding: 1rem;\'>Save SCCI photo<br>as scci-door.jpg</div>'">
+                    </div>
+                </div>
+
+                <!-- Experience: CIB Bank -->
+                <div style="position: relative;">
+                    <div
+                        style="position: absolute; left: -2.55rem; top: 0; width: 20px; height: 20px; background: var(--bg-main); border: 4px solid #f59e0b; border-radius: 50%;">
+                    </div>
+                    <div class="glass-panel" style="padding: 1.5rem;">
+                        <div style="display: flex; align-items: center; gap: 0.8rem; margin-bottom: 0.3rem;">
+                            <h3 style="color: var(--text-main); font-size: 1.2rem;">Trainee</h3>
+                            <span
+                                style="background: rgba(245,158,11,0.15); color: #f59e0b; font-size: 0.75rem; font-weight: 700; padding: 0.2rem 0.7rem; border-radius: 20px; border: 1px solid rgba(245,158,11,0.3);">Internship</span>
+                        </div>
+                        <p style="color: #f59e0b; font-weight: 500; font-size: 0.9rem; margin-bottom: 1rem;">
+                            <i class="fas fa-university" style="margin-right: 0.4rem;"></i>CIB Bank — Commercial
+                            International Bank
+                        </p>
+                        <p
+                            style="color: var(--text-muted); font-size: 0.95rem; margin-bottom: 1.2rem; line-height: 1.75;">
+                            Completed a hands-on internship at one of Egypt's leading banks, gaining practical exposure
+                            to real-world banking operations and digital transformation. During this period I explored:
+                        </p>
+                        <ul
+                            style="color: var(--text-muted); font-size: 0.92rem; line-height: 1.8; padding-left: 1.3rem; margin-bottom: 1.2rem;">
+                            <li>Core banking systems and IT infrastructure used in financial institutions</li>
+                            <li>Applications of <strong style="color: var(--primary);">Artificial Intelligence</strong>
+                                in banking — fraud detection, customer analytics, and smart automation</li>
+                            <li>Data workflows, reporting tools, and internal digital platforms</li>
+                            <li>Cybersecurity fundamentals and data privacy practices in banking environments</li>
+                        </ul>
+
+                        <!-- Certificate Image -->
+                        <div style="margin-top: 1.2rem;">
+                            <p
+                                style="font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; color: var(--text-muted); margin-bottom: 0.8rem; font-weight: 600;">
+                                <i class="fas fa-award" style="color: #f59e0b; margin-right: 0.4rem;"></i>Certificate of
+                                Completion
+                            </p>
+                            <div
+                                style="position: relative; border-radius: 10px; overflow: hidden; border: 2px solid rgba(245,158,11,0.3); background: var(--bg-main);">
+                                <img src="{% static 'images/Certificate_Final Assessment.png' %}"
+                                    alt="CIB Bank Internship Certificate"
+                                    style="width: 100%; border-radius: 8px; display: block;"
+                                    onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Skills Section (Modern Chips) -->
+        <div data-aos="fade-left">
+            <h2 style="margin-bottom: 2rem; color: var(--primary); display: flex; align-items: center; gap: 0.5rem;">
+                <i class="fas fa-code"></i> Technical Arsenal
+            </h2>
+
+            <div class="glass-panel" style="padding: 2rem;">
+                <h3
+                    style="font-size: 1rem; color: var(--text-muted); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;">
+                    Backend & Languages</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 2rem;">
+                    <span class="tech-badge" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Python</span>
+                    <span class="tech-badge"
+                        style="font-size: 0.9rem; padding: 0.5rem 1rem; border-color: var(--primary); color: var(--primary);">Django</span>
+                    <span class="tech-badge" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Java</span>
+                    <span class="tech-badge" style="font-size: 0.9rem; padding: 0.5rem 1rem;">C++</span>
+                    <span class="tech-badge" style="font-size: 0.9rem; padding: 0.5rem 1rem;">PHP</span>
+                </div>
+
+                <h3
+                    style="font-size: 1rem; color: var(--text-muted); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;">
+                    Frontend & Design</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.8rem; margin-bottom: 2rem;">
+                    <span class="tech-badge" style="font-size: 0.9rem; padding: 0.5rem 1rem;">HTML5</span>
+                    <span class="tech-badge" style="font-size: 0.9rem; padding: 0.5rem 1rem;">CSS3</span>
+                    <span class="tech-badge" style="font-size: 0.9rem; padding: 0.5rem 1rem;">JavaScript</span>
+                    <span class="tech-badge" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Figma</span>
+                    <span class="tech-badge" style="font-size: 0.9rem; padding: 0.5rem 1rem;">UI/UX</span>
+                </div>
+
+                <h3
+                    style="font-size: 1rem; color: var(--text-muted); margin-bottom: 1rem; text-transform: uppercase; letter-spacing: 1px;">
+                    Databases & Tools</h3>
+                <div style="display: flex; flex-wrap: wrap; gap: 0.8rem;">
+                    <span class="tech-badge" style="font-size: 0.9rem; padding: 0.5rem 1rem;">MySQL</span>
+                    <span class="tech-badge" style="font-size: 0.9rem; padding: 0.5rem 1rem;">SQLite</span>
+                    <span class="tech-badge" style="font-size: 0.9rem; padding: 0.5rem 1rem;">Git</span>
+                    <span class="tech-badge" style="font-size: 0.9rem; padding: 0.5rem 1rem;">GitHub</span>
+                    <span class="tech-badge" style="font-size: 0.9rem; padding: 0.5rem 1rem;">REST APIs</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

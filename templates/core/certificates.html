@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="page-container">
+    <h1 class="section-title" data-aos="fade-down">Certificates</h1>
+    
+    <div class="certs-grid">
+        {% for cert in certificates %}
+        <div class="cert-card-modern glass-panel" data-aos="fade-up" data-aos-delay="{{ forloop.counter|add:'1' }}00">
+            <div style="display: flex; gap: 1rem; align-items: flex-start; margin-bottom: 0.5rem;">
+                <div class="cert-icon-modern">
+                    <i class="fas fa-award"></i>
+                </div>
+                <div style="flex: 1;">
+                    <h4 class="cert-title-modern" style="margin-bottom: 0.3rem;">{{ cert.title }}</h4>
+                    <p style="color: var(--primary); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin: 0; line-height: 1.4;">
+                        {{ cert.issuer }}
+                    </p>
+                </div>
+            </div>
+            
+            <p class="cert-date-modern">
+                <i class="far fa-calendar-alt"></i> {{ cert.date }}
+            </p>
+            
+            {% if cert.link %}
+            <div class="cert-footer-modern">
+                <a href="{{ cert.link }}" target="_blank" class="btn btn-outline" style="width: 100%; padding: 0.6rem; font-size: 0.88rem;">
+                    <i class="fas fa-external-link-alt" style="margin-right: 0.4rem;"></i> Verify Credential
+                </a>
+            </div>
+            {% endif %}
+        </div>
+        {% empty %}
+        <p style="text-align: center; grid-column: 1/-1; color: var(--text-muted);">No certificates added yet.</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
